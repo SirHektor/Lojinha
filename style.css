@@ -9,6 +9,7 @@
 }
 
 
+
 * {
     margin: 0;
     border: 0;
@@ -63,11 +64,71 @@ input {
     
     width: 80px;
     height: 32px;
-    border-radius: 8%;
-    border: solid 1px;
+    border-radius: 10%;
+    font-size: 11px;
     cursor: pointer;
-    margin-top: 5px
+    margin-top: 5px;
+    color: #000000;
+    background: #ffffff;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
 }
+
+.carrinhoBotao:after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    transition: all 0.3s;
+  }
+  .carrinhoBotao:before {
+    content: '';
+    background: linear-gradient(45deg, #C6ABF5, #F5ABF3, #DDACF4, #ADABF5, #00ffd5, #F5ABC7, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    z-index: -10;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10%;
+  }
+
+  
+  .carrinhoBotao:active {
+    color: #ffffff;
+  }
+
+  .carrinhoBotao:active:after {
+    background: transparent;
+  }
+
+  .carrinhoBotao:hover:before {
+    opacity: 1;
+}
+
+.carrinhoBotao::after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #fcf5f5;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
 
 .buscar{
     width: 55px;
@@ -77,6 +138,7 @@ input {
     border: solid 1px;
     cursor: pointer;  
 }
+
 
 .limpa{
     width: 55px;
@@ -104,6 +166,7 @@ input {
 }
 
 .nome-secao{
+    margin-top: 5px;
     font-family: cinzel, sans-serif;
 }
 
@@ -128,4 +191,23 @@ p{
 span{
     font-family: vcd, sans-serif;
     font-size: 14px;
+}
+
+#header{
+    background: linear-gradient(-45deg, #f8e5e2, #d2dbfb, rgb(215, 247, 218)
+    , #f8cbf0);
+    background-size: 400% 400%;
+    animation: Gradient 15s ease infinite; ;
+}
+
+@keyframes Gradient {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
 }
